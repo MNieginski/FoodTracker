@@ -15,3 +15,4 @@ This app will have full CRUD functionality, of Days that you are tracking, and a
 - Node
 
 # WireFrame
+![NutritionTrackerWireframe](https://github.com/MNieginski/FoodTracker/assets/54648187/8928d30a-e38f-4fde-ac91-d6cb2b4972b5)
