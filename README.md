@@ -10,7 +10,7 @@ This app will have full CRUD functionality, of Days that you are tracking, and a
 - JS
 
 - Mongoose
-0 Express
+- Express
 - React
 - Node
 
