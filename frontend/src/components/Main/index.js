@@ -13,7 +13,7 @@ const Main = (props) => {
     const [query, setQuery] = useState("")
     const [results, setResults] = useState(null)
 
-
+    
     async function fetchFood() {
         const response = await axios({
             method: 'GET',
@@ -28,7 +28,7 @@ const Main = (props) => {
 
     useEffect(() => {
 
-    }, [foods])
+    }, [isLoading])
 
     const handleSearch = async (e) => {
         e.preventDefault()
@@ -49,6 +49,27 @@ const Main = (props) => {
         </div>
     ))
 
+    function normalizeResult(rawData){
+        console.log(rawData[0], "normalizing")
+        // const {
+        //     name,
+        //     calories,
+        //     serving_size_g,
+        //     fat_total_g,
+        //     protein_g
+        // } = rawData[0];
+
+        return {
+            name: rawData[0].name,
+            calories: rawData[0].calories,
+            servingSize: rawData[0].serving_size_g,
+            fatContent: rawData[0].fat_total_g,
+            protein: rawData[0].protein_g
+        };
+    }
+    if (foods.length) {
+    console.log(normalizeResult(foods))
+}
     const loaded = () => {
         return (
             <div>
