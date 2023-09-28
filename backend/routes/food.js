@@ -18,6 +18,6 @@ router.get("/:id", foodCtrl.show);
 router.delete("/:id", foodCtrl.delete);
 
 // Update
-router.put("/:id", peopleCtrl.update);
+router.put("/:id", foodCtrl.update);
 
 module.exports = router

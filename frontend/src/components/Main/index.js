@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -11,13 +11,12 @@ const Main = (props) => {
     const [foods, setFoods] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [query, setQuery] = useState("")
-    const [results, setResults] = useState(null)
 
     
     async function fetchFood() {
         const response = await axios({
             method: 'GET',
-            url: `https://api.calorieninjas.com/v1/nutrition?query=${query}`,
+            url: process.env.REACT_APP_API_URL + query,
             headers: { 'X-Api-Key': process.env.REACT_APP_API_KEY }
             })
             console.log(response)
@@ -39,18 +38,34 @@ const Main = (props) => {
         setQuery(e.target.value)
     }
 
+    async function handleSubmit(data) {
+        const newFood = await fetch(process.env.REACT_APP_BASE_URL, 
+            { method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(data)
+         })
+        if (newFood.ok) {
+            return newFood.json()
+        } else {
+            throw new Error("Invalid Request")
+        }
+    }
+
     const renderFood = foods?.map((curFood) =>(
         <div>
-            <h1>{curFood.name}</h1>
-            <h3>{curFood.calories}</h3>
-            <h3>{curFood.serving_size_g}</h3>
-            <h3>{curFood.fat_total_g}</h3>
-            <h3>{curFood.protein_g}</h3>
+            <h1>{curFood.name.toUpperCase()}</h1>
+            <h3>{curFood.calories} kcal</h3>
+            <h3>{curFood.serving_size_g}g.</h3>
+            <h3>{curFood.fat_total_g}g.</h3>
+            <h3>{curFood.protein_g}g.</h3>
+            <button onClick={() => handleSubmit(normalizeResult(foods))}>Save {curFood.name.toUpperCase()}</button>
         </div>
     ))
 
     function normalizeResult(rawData){
-        console.log(rawData[0], "normalizing")
+        // console.log(rawData[0], "normalizing")
         // const {
         //     name,
         //     calories,
@@ -67,9 +82,9 @@ const Main = (props) => {
             protein: rawData[0].protein_g
         };
     }
-    if (foods.length) {
-    console.log(normalizeResult(foods))
-}
+//     if (foods.length) {
+//     console.log(normalizeResult(foods))
+// }
     const loaded = () => {
         return (
             <div>
