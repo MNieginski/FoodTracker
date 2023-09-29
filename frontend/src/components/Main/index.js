@@ -1,10 +1,5 @@
-// import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-
-// import Food from "../..pages/Food/";
-// import Show from "../..pages/Show/";
 
 const Main = (props) => {
 
@@ -47,7 +42,8 @@ const Main = (props) => {
             body: JSON.stringify(data)
          })
         if (newFood.ok) {
-            return newFood.json()
+            // return newFood.json()
+            // naviagte to - import 
         } else {
             throw new Error("Invalid Request")
         }
@@ -65,15 +61,6 @@ const Main = (props) => {
     ))
 
     function normalizeResult(rawData){
-        // console.log(rawData[0], "normalizing")
-        // const {
-        //     name,
-        //     calories,
-        //     serving_size_g,
-        //     fat_total_g,
-        //     protein_g
-        // } = rawData[0];
-
         return {
             name: rawData[0].name,
             calories: rawData[0].calories,
@@ -82,9 +69,7 @@ const Main = (props) => {
             protein: rawData[0].protein_g
         };
     }
-//     if (foods.length) {
-//     console.log(normalizeResult(foods))
-// }
+
     const loaded = () => {
         return (
             <div>
@@ -100,10 +85,6 @@ const Main = (props) => {
     }
     return (
         <main>
-            {/* <Routes>
-                <Route path="/" element={<Food />} />
-                <Route path="food/:id" element={<Show />} />
-            </Routes> */}
             <h2>Main Test</h2>
             <div>
                 <form>
