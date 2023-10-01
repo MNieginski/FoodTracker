@@ -1,0 +1,15 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-bottom: 50px;
+    justify-content: center;
+    width: 90%;
+    font-size: 30px;
+    border-bottom: 3px solid black;
+}
+
+section {
+    margin-left: 20px;
+    margin-right: 20px;
+}

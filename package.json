@@ -2,6 +2,8 @@
   "dependencies": {
     "ajax": "^0.0.4",
     "axios": "^1.5.1",
-    "mongodb": "^6.1.0"
+    "bootstrap": "^5.3.2",
+    "mongodb": "^6.1.0",
+    "react-router-bootstrap": "^0.26.2"
   }
 }
