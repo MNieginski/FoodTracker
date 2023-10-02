@@ -14,4 +14,9 @@ As a user, you should be able to log what foods you track, and keep it in a data
 With the use of another API users will be able to find recipes for meals, and when selected, will add nutritional info to the page
 
 
-With use of AuthO, users will be able to log-in and save their tracked content
+With use of AuthO, users will be able to log-in and see only their tracked content
+
+Ability to save foods, to a specific day. 
+
+Updating and Deleting of individual foods. 
+
